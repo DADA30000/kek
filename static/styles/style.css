@@ -50,12 +50,79 @@ h1 {
     transition: backdrop-filter 200ms;
     transition: background-color 200ms;
 }
+.fancy-wrapper > h2 {
+    border-radius: 25px;
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px;
+    backdrop-filter: blur(100px);
+}
+.fancy-wrapper > div {
+  display: grid;
+  backface-visibility: hidden;
+  will-change: height, opacity;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  padding: 20px;
+  border-radius: 25px;
+  margin: 0 200px;
+  backdrop-filter: blur(100px);
+  transition: 
+    grid-template-rows 500ms 500ms,
+    opacity 500ms 500ms; /* Staggered opacity animation */
+}
+.fancy-wrapper > div > div {
+    overflow: hidden;
+    min-height: 0;
+}
+.fancy-wrapper > h2:hover + div {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    transition: 
+        grid-template-rows 500ms,
+        opacity 500ms;
+}
 .some-text {
     border-radius: 25px;
     display: flex;
     padding: 10px;
     margin: 0 200px;
     backdrop-filter: blur(500px);
+}
+#dad2, #dad3  {
+    transform: translateX(+100%);
+}
+#lmaooo {
+  margin: 60px 20px 20px 20px;
+}
+#right, #left {
+  background: transparent;
+  margin: 20px;
+  user-select: none;
+  padding: 10px 20px 10px 20px;;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(15px);
+  transition: background-color 200ms, opacity 0.2s;
+}
+.hidden {
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+#right:hover, #left:hover {
+    background-color: rgba(255,255,255,0.1);
+    transition: background-color 200ms, opacity 0.2s;
+}
+.griddy {
+  display: grid;
+  margin-bottom: 20px;
+}
+.kek {
+  grid-area: 1 / 1;
+  transition: transform 500ms;
 }
 .some-text2 {
     border-radius: 25px;
@@ -76,11 +143,12 @@ q {
 }
 .quote {
   text-align: right;
-  width: 62.5%;
+  width: 85%;
   margin: 100px 0 100px 0;
   font-size: 16px;
 }
 .wrapper {
+  overflow: hidden;
   height: 100%;
   width: 100%;
 }
